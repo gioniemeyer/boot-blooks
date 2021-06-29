@@ -1,15 +1,31 @@
 import styled from "styled-components";
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 import Book from "./Book";
 
 export default function BooksContainer() {
+    const [books, setBooks] = useState([]);
+
 
     //useEffect para pegar infos do banco
+    useEffect(() => {
+        const req = axios.get("http://localhost:4000/books");
+
+        req.then(res => {
+            setBooks(res.data);
+        })
+    }, [])
 
     return (
+        <>
+        <Title>Nossa estante</Title>
         <Container>
-            <Book />
+            {
+                books.map(book => <Book key={book.id} book={book} />)
+            }
         </Container>
+        </>
     )
 
 }
@@ -20,8 +36,11 @@ const Container = styled.div`
     flex-wrap: wrap;
     justify-content: space-between;
 
-    img {
-        height: 180px;
-        width: 130px;
-    }
+`
+
+const Title = styled.h1`
+    font-weight: bold;
+    font-size: 25px;
+    color: #000;
+    padding-bottom: 25px;
 `

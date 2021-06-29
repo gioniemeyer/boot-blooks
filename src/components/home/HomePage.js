@@ -31,7 +31,6 @@ const Container = styled.div`
     display: flex;
     flex-direction:column;
     justify-content: flex-start;
-    
     font-family: 'Roboto', sans-serif;
    
     @media(max-width: 614px) {
