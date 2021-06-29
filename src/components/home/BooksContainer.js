@@ -33,7 +33,6 @@ const Container = styled.div`
     width: 100%;
     flex-wrap: wrap;
     justify-content: space-between;
-
 `
 
 const Title = styled.h1`

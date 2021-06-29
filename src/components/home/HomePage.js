@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import books from '../../medias/books.jpeg';
 import BooksContainer from "./BooksContainer";
-import Categories from "./Categories";
+import Categories from "../globalComponents/Categories";
 
 export default function HomePage() {
     return(
