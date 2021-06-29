@@ -1,8 +1,9 @@
-import styled from "styled-components";
 
 import books from '../../medias/books.jpeg';
 import BooksContainer from "./BooksContainer";
 import Categories from "../globalComponents/Categories";
+import styled from 'styled-components';
+
 
 export default function HomePage() {
     return(
