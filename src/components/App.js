@@ -16,6 +16,9 @@ export default function App() {
 
                 <Route path='/' exact component={HomePage}/>
 
+                <Route path='/book/:id' exact component={HomePage}/>
+
+
             </Switch>
         </BrowserRouter>
     )
