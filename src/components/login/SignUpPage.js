@@ -108,7 +108,6 @@ const Container = styled.div`
   width: 70%;
   display: flex;
   justify-content: space-between;
-  background-color: beige;
   font-family: "Roboto", sans-serif;
   margin: 0 auto;
 `;
@@ -151,7 +150,6 @@ const SignIn = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: yellow;
 `;
 
 const Form = styled.form`
