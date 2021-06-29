@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import books from '../../medias/books.jpeg';
 import BooksContainer from "./BooksContainer";
+import Categories from "./Categories";
 
 export default function HomePage() {
     return(
@@ -11,13 +12,9 @@ export default function HomePage() {
                     BootBlooks
                 </h1>
             </Slogan>
-            <Categories>
-                {/* devem vir do banco ? */}
-                <p>dhsufhisuao</p>
-                <p>dhsufhisuao</p>
-                <p>dhsufhisuao</p>
-                <p>dhsufhisuao</p>
-            </Categories>
+
+            <Categories />
+                        
             <BooksContainer />
             
         </Container>
@@ -64,14 +61,3 @@ const Slogan = styled.div`
      }
     } 
 `
-
-const Categories = styled.div`
-    height: 50px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 14px;
-`
-
-

@@ -7,8 +7,6 @@ import Book from "./Book";
 export default function BooksContainer() {
     const [books, setBooks] = useState([]);
 
-
-    //useEffect para pegar infos do banco
     useEffect(() => {
         const req = axios.get("http://localhost:4000/books");
 

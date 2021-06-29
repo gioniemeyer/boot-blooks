@@ -20,7 +20,7 @@ export default function Book({book}) {
 }
 
 const Container = styled.div`
-    word-break: break-all;
+    word-wrap: break-word;
     width: 220px;
     display: flex;
     flex-direction: column;
@@ -38,17 +38,30 @@ const Container = styled.div`
         max-width: 145px;
         width: 100%;    
         }
+    
     }
 
     @media(max-width: 614px) {
         max-width: 160px;
         width: 45%;
     }
+
+    :hover {
+        img {
+            opacity: 0.7;
+        }
+        h1 {
+            color: #070707;
+        }
+        cursor: pointer;
+    }
+
 `
 
 const Title = styled.h1`
     color: #7f7f7f;
     padding: 15px 0;
+    text-align: center;
 `
 
 const Price = styled.p`
