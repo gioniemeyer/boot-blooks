@@ -1,24 +1,43 @@
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import styled from "styled-components";
-import Categories from '../globalComponents/Categories';
-import axios from axios;
 
+import Categories from '../globalComponents/Categories';
 import BookContainer from "./BookContainer";
+import Slogan from "../globalComponents/Slogan";
 
 export default function BookPage() {
+    let history = useHistory();
     let {id} = useParams();
+    const [book, setBook] = useState({});
     
+    useEffect(() => {
+        id = parseInt(id);
+
+        const req = axios.get("https://boot-blooks-back.herokuapp.com/books/" + id);
+
+        req.then(res => setBook(res.data))
+
+        req.catch(err => {
+            const statusCode = err.response.status;
+            if(statusCode === 404) {
+                alert("Desculpe, este livro não existe ainda na nossa livraria :(")
+                history.push('/');
+            } else {
+                alert("Deu um erro inesperado, favor tente mais tarde!")
+            }
+        })
+    }, [id]);
+
+
     return(
         <Container>
-            <Slogan>
-                <h1>
-                    BootBlooks
-                </h1>
-            </Slogan>
+            <Slogan />
 
             <Categories />
                         
-            <BookContainer />
+            <BookContainer book={book} />
             
         </Container>
     )
@@ -27,7 +46,7 @@ export default function BookPage() {
 const Container = styled.div`
     height: 100%;
     width: 70vw;
-    margin: 100px auto 0 auto;
+    margin: 100px auto;
     display: flex;
     flex-direction:column;
     justify-content: flex-start;
@@ -37,30 +56,4 @@ const Container = styled.div`
         width: 90%;
         margin: 100px auto 20px auto;
     }
-`
-
-const Slogan = styled.div`
-    background:url(${books});
-    background-image: cover;
-    height: 300px;
-    width: 100%;
-
-    @media(max-width: 614px) {
-        height: 150px;
-        width: 100%;
-    }
-
-    h1 {
-    width: fit-content;
-    margin: 140px auto;
-    font-weight: bold;
-    font-size: 70px;
-    background-color: #000;
-    color: #fff;
-
-    @media(max-width: 614px) {
-         font-size: 40px;
-         margin: 70px auto;
-     }
-    } 
 `

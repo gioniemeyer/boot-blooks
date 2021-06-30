@@ -8,8 +8,8 @@ export default function BooksContainer() {
     const [books, setBooks] = useState([]);
 
     useEffect(() => {
-        const req = axios.get("http://localhost:4000/books");
-
+        const req = axios.get("https://boot-blooks-back.herokuapp.com/books");
+        
         req.then(res => {
             setBooks(res.data);
         })
