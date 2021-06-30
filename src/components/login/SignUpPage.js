@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
+import SignInPage from "./SignInPage";
+import HomePage from "../home/HomePage";
 
 export default function SignUpPage() {
   const [name, setName] = useState("");
@@ -11,11 +13,14 @@ export default function SignUpPage() {
   const [gender, setGender] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
   let history = useHistory();
+  const equalPassword = password === confirmPassword ? true : false;
 
- console.log(name, password, email, gender)
   function SaveRegister(event) {
     event.preventDefault();
-    if (name && email && password && confirmPassword) {
+    if (!equalPassword) {
+      alert("Senhas não conferem. Preencha corretamente.");
+      return;
+    } else if (name && email) {
       setIsDisabled(true);
       const body = {
         name: name,
@@ -28,22 +33,32 @@ export default function SignUpPage() {
         alert("sucesso no cadastro!");
         history.push("/");
       });
-      request.catch(() => {
+      request.catch((error) => {
         setIsDisabled(false);
-        alert("Não foi possível realizar o cadastro.");
+        if (error.message === "Request failed with status code 409") {
+          alert(
+            "Esse e-mail nao está disponível. Outro usuário já é cadastrado com o respectivo endereço."
+          );
+          return;
+        }
+        if (error.message === "Request failed with status code 400") {
+          alert("Preencha os campos corretamente.");
+          return;
+        }
       });
     }
   }
   return (
     <>
+      <HomePage />
       <Container>
-        <SignIn>oi</SignIn>
+        <SignInPage />
         <Division></Division>
         <SignUp>
           <h1>Criar novo cadastro</h1>
           <p>
             Use o formulário abaixo para cadastrar-se na loja.
-            <br/> É rápido e fácil.
+            <br /> É rápido e fácil.
           </p>
           <Form onSubmit={SaveRegister}>
             <h2>Nome completo:</h2>
@@ -81,17 +96,21 @@ export default function SignUpPage() {
 
             <h2>Gênero:</h2>
             <form className="genderForm">
-              <input type="radio" 
-               name="gender"
-               value ="feminino"
-               onClick={() => setGender('Feminino')}
-               required />
+              <input
+                type="radio"
+                name="gender"
+                value="feminino"
+                onClick={() => setGender("Feminino")}
+                required
+              />
               <label for="feminino">Feminino</label>
-              <input type="radio"
-               name="gender"
-               value="masculino"
-               onClick={() => setGender('Masculino')}
-               required />
+              <input
+                type="radio"
+                name="gender"
+                value="masculino"
+                onClick={() => setGender("Masculino")}
+                required
+              />
               <label for="masculino">Masculino</label>
             </form>
             <button type="submit" onClick={SaveRegister}>
@@ -105,6 +124,7 @@ export default function SignUpPage() {
 }
 
 const Container = styled.div`
+  padding: 100px 0px 100px 0px;
   width: 70%;
   display: flex;
   justify-content: space-between;
@@ -138,19 +158,19 @@ const SignUp = styled.div`
     color: #8e1a0a;
   }
   p {
-    font-size: 14px;
+    font-size: 13px;
     line-height: 18px;
     color: gray;
   }
 `;
 
-const SignIn = styled.div`
-  width: 40%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`;
+// const SignInPage = styled.div`
+//   width: 40%;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   flex-direction: column;
+// `;
 
 const Form = styled.form`
   width: 100%;
@@ -176,6 +196,7 @@ const Form = styled.form`
     line-height: 23px;
     cursor: pointer;
   }
+
   input {
     height: 35px;
     background: #ffffff;

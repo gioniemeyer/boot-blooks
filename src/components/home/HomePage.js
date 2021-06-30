@@ -10,14 +10,11 @@ export default function HomePage() {
         <Container>
             <Slogan>
                 <h1>
-                    BootBlooks
+              BootBlooks
                 </h1>
             </Slogan>
-
             <Categories />
-                        
             <BooksContainer />
-            
         </Container>
     )
 }
