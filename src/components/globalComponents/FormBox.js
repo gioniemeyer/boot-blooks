@@ -1,4 +1,16 @@
+import React from "react";
 import styled from "styled-components";
+
+export default function FormBox({children, onSubmit}) {
+  
+  return (
+    <>
+      <StyledForm onSubmit={onSubmit}>
+        {children}
+      </StyledForm>
+    </>
+  );
+}
 
 const StyledForm = styled.form`
   width: 100%;
@@ -51,6 +63,3 @@ const StyledForm = styled.form`
     }
   }
 `;
-export {StyledForm};
-
-

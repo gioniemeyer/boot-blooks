@@ -1,13 +1,11 @@
 import { SignIn } from "./styledComponents/StyledSignInPage";
-import React from "react";
-import { useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import ErrorSignIn from "./ErrorSignIn.js";
 import UserContext from "../../contexts/UserContext.js";
 import Input from "../globalComponents/Input";
-import { StyledForm } from "./styledComponents/StyledForm";
-import FormSignIn from "./forms/FormSignIn";
+import FormBox from "../globalComponents/FormBox";
 
 export default function SignInPage() {
   const [email, setEmail] = useState("");
@@ -49,7 +47,7 @@ export default function SignInPage() {
           abaixo seu email e sua senha de acesso à loja.
         </p>
 
-        <FormSignIn onSubmit={Login}>
+        <FormBox onSubmit={Login}>
           <h2>E-mail:</h2>
           <Input
             type="email"
@@ -69,7 +67,7 @@ export default function SignInPage() {
           <button type="submit" onClick={Login}>
             Entrar
           </button>
-        </FormSignIn>
+        </FormBox>
       </SignIn>
     </>
   );
