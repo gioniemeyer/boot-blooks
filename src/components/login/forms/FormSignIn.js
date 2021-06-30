@@ -1,5 +1,4 @@
   
-//import FormSignIn  from "./forms/FormSignIn.js";
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
@@ -27,7 +26,7 @@ export default function FormSignIn() {
       request.then((response) => {
         console.log("sucess");
         setIsDisabled(false);
-        setUser(response.data);
+        setUser(responsedata);
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("name", response.data.username);
         history.push("/");
