@@ -22,7 +22,7 @@ export default function SignUpPage() {
         email,
         password,
       };
-      const request = axios.post("http://localhost:4000/sign-up", body);
+      const request = axios.post("https://boot-blooks-back.herokuapp.com/sign-up", body);
       request.then(() => {
         setIsDisabled(false);
         alert("sucesso no cadastro!");

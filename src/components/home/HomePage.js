@@ -1,18 +1,14 @@
 
-import books from '../../medias/books.jpeg';
 import BooksContainer from "./BooksContainer";
-import Categories from "./Categories";
+import Categories from "../globalComponents/Categories";
 import styled from 'styled-components';
+import Slogan from "../globalComponents/Slogan";
 
 
 export default function HomePage() {
     return(
         <Container>
-            <Slogan>
-                <h1>
-                    BootBlooks
-                </h1>
-            </Slogan>
+            <Slogan />
 
             <Categories />
                         
@@ -35,30 +31,4 @@ const Container = styled.div`
         width: 90%;
         margin: 100px auto 20px auto;
     }
-`
-
-const Slogan = styled.div`
-    background:url(${books});
-    background-image: cover;
-    height: 300px;
-    width: 100%;
-
-    @media(max-width: 614px) {
-        height: 150px;
-        width: 100%;
-    }
-
-    h1 {
-    width: fit-content;
-    margin: 140px auto;
-    font-weight: bold;
-    font-size: 70px;
-    background-color: #000;
-    color: #fff;
-
-    @media(max-width: 614px) {
-         font-size: 40px;
-         margin: 70px auto;
-     }
-    } 
 `

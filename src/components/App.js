@@ -5,6 +5,8 @@ import SignInPage from "./login/SignInPage";
 import SignUpPage from "./login/SignUpPage";
 
 import '../styles/reset.css';
+import BookPage from "./internPages/BookPage";
+import CartPage from "./shopping/CartPage";
 
 export default function App() {
     return (
@@ -16,8 +18,9 @@ export default function App() {
 
                 <Route path='/' exact component={HomePage}/>
 
-                <Route path='/book/:id' exact component={HomePage}/>
-
+                <Route path='/books/:id' exact component={BookPage}/>
+          
+                <Route path='/shopping-cart' exact component={CartPage}/>
 
             </Switch>
         </BrowserRouter>
