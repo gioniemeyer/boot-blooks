@@ -26,7 +26,7 @@ export default function FormSignIn() {
       request.then((response) => {
         console.log("sucess");
         setIsDisabled(false);
-        setUser(responsedata);
+        setUser(response.data);
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("name", response.data.username);
         history.push("/");
