@@ -6,6 +6,8 @@ import SignUpPage from "./login/signUp/SignUpPage";
 import UserContext from "../contexts/UserContext";
 
 import '../styles/reset.css';
+import BookPage from "./internPages/BookPage";
+import CartPage from "./shopping/CartPage";
 
 export default function App() {
     const [user, setUser] = useState(undefined);
@@ -20,8 +22,9 @@ export default function App() {
 
                 <Route path='/' exact component={HomePage}/>
 
-                <Route path='/book/:id' exact component={HomePage}/>
-
+                <Route path='/books/:id' exact component={BookPage}/>
+          
+                <Route path='/shopping-cart' exact component={CartPage}/>
 
             </Switch>
         </BrowserRouter>

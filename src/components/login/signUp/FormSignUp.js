@@ -4,7 +4,7 @@ import axios from "axios";
 import Input from "../Input";
 import { StyledForm } from "../styledComponents/StyledForm";
 
-export default function Form() {
+export default function FormSignUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,7 +28,7 @@ export default function Form() {
         email,
         password,
       };
-      const request = axios.post("http://localhost:4000/sign-up", body);
+      const request = axios.post("https://boot-blooks-back.herokuapp.com/sign-up", body);
       request.then(() => {
         setIsDisabled(false);
         alert("sucesso no cadastro!");
