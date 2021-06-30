@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { GiShoppingCart } from "react-icons/gi";
 import { useHistory } from "react-router";
 import axios from "axios";
-import { useContext, useReducer } from "react";
+import { useContext } from "react";
 import UserContext from "../../contexts/UserContext";
 
 export default function BookContainer({book}) {
