@@ -30,7 +30,8 @@ const StyledInput = styled.input`
       color: #000000;
       font-size: 15px;
       line-height: 23px;
-    }`;
+    }`
+    ;
   
 
 

@@ -9,7 +9,6 @@ export default function HomePage() {
     return(
         <Container>
             <Slogan />
-
             <Categories />
             <BooksContainer />
         </Container>

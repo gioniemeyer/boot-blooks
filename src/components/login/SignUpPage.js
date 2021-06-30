@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Input from "../globalComponents/Input";
 import HomePage from "../home/HomePage";
-import FormSignUp from "./forms/FormSignUp";
+import FormBox from "../globalComponents/FormBox";
 import {
   Container,
   SignUp,
@@ -19,7 +19,9 @@ export default function SignUpPage() {
   const [gender, setGender] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
   let history = useHistory();
-  const equalPassword = password === confirmPassword ? true : false;
+
+  const equalPassword = (password === confirmPassword ? true : false);
+
   function SaveRegister(event) {
     event.preventDefault();
     if (!equalPassword) {
@@ -34,10 +36,7 @@ export default function SignUpPage() {
       email,
       password,
     };
-    const request = axios.post(
-      "https://boot-blooks-back.herokuapp.com/sign-up",
-      body
-    );
+    const request = axios.post("http://localhost:4000/sign-in", body);
     request.then(() => {
       setIsDisabled(false);
       alert("sucesso no cadastro!");
@@ -68,7 +67,7 @@ export default function SignUpPage() {
             Use o formulário abaixo para cadastrar-se na loja.
             <br /> É rápido e fácil.
           </p>
-          <FormSignUp onSubmit={SaveRegister}>
+          <FormBox onSubmit={SaveRegister}>
             <h2>Nome completo:</h2>
             <Input
               type="text"
@@ -119,7 +118,7 @@ export default function SignUpPage() {
             <button type="submit" onClick={SaveRegister}>
               Cadastrar
             </button>
-          </FormSignUp>
+          </FormBox>
         </SignUp>
       </Container>
     </>

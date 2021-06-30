@@ -1,4 +1,13 @@
+import React from "react";
 import styled from "styled-components";
+
+export default function FormBox({ children, onSubmit }) {
+  return (
+    <>
+      <StyledForm onSubmit={onSubmit}>{children}</StyledForm>
+    </>
+  );
+}
 
 const StyledForm = styled.form`
   width: 100%;
@@ -17,7 +26,6 @@ const StyledForm = styled.form`
     background-color: #8e1a0a;
     border-radius: 5px;
     border: none;
-    margin-bottom: 30px;
     outline: transparent;
     color: #ffffff;
     font-size: 20px;
@@ -50,7 +58,12 @@ const StyledForm = styled.form`
       margin-top: 15px;
     }
   }
+  @media (max-width: 780px) {
+    width: 100%;
+    button {
+      position: absolute;
+      bottom: 0px;
+      left: 17.5%;
+    }
+  }
 `;
-export {StyledForm};
-
-
