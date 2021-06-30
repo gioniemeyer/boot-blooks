@@ -1,11 +1,12 @@
 import { useHistory, useParams } from "react-router";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 
+
 import Categories from '../globalComponents/Categories';
-import BookContainer from "./BookContainer";
 import Slogan from "../globalComponents/Slogan";
+import BookContainer from "./BookContainer";
 
 export default function BookPage() {
     let history = useHistory();

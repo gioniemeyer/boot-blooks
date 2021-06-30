@@ -1,17 +1,39 @@
 import styled from "styled-components";
 import { GiShoppingCart } from "react-icons/gi";
 import { useHistory } from "react-router";
+import axios from "axios";
+import { useContext, useReducer } from "react";
+import UserContext from "../../contexts/UserContext";
 
 export default function BookContainer({book}) {
     let history = useHistory();
-    const {image, title, sinopse, price} = book;
+    const { user } = useContext(UserContext);
+
+    const {id, image, title, sinopse, price} = book;
     const currency = (price / 100).toFixed(2).replace('.',',');
+
+    console.log(user)
 
     function buy(e) {
         e.preventDefault();
 
-        history.push("/shopping-cart");
+        const body = {
+            // userId: userId,
+            bookId: id, 
+            quantity: 1
+        }
+
+        const req = axios.post('http://localhost:4000/add-product', body);
+
+        req.then(() => history.push("/shopping-cart"));
+
+        req.catch(err => {
+            const statusCode = err.response.status;
+            alert(statusCode);
+        })
     }
+
+
     return(
         <Container>
             <Image>
