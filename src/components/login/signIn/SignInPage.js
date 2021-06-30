@@ -1,13 +1,14 @@
-  
+import { SignIn} from "../styledComponents/StyledSignInPage"; 
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-//import ErrorSignIn from "../../errorAlerts/ErrorSignIn.js";
-import UserContext from "../../../contexts/UserContext";
+import ErrorSignIn from "./ErrorSignIn.js";
+import UserContext from "../../../contexts/UserContext.js";
 import Input from "../Input";
 import { StyledForm } from "../styledComponents/StyledForm";
 
-export default function FormSignIn() {
+
+export default function SignInPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
@@ -24,34 +25,29 @@ export default function FormSignIn() {
       };
       const request = axios.post("http://localhost:4000/sign-in", body);
       request.then((response) => {
-        console.log("sucess");
         setIsDisabled(false);
         setUser(response.data);
         localStorage.setItem("token", response.data.token);
-        localStorage.setItem("name", response.data.username);
+        localStorage.setItem("name", response.data.name);
         history.push("/");
       });
       request.catch((error) => {
         setIsDisabled(false);
         alert("Não foi possível realizar o login.");
-        if (error.response.status === 401) {
-          alert("Senha incorreta! Tente novamente.");
-          return;
-        }
-       else  if (error.response.status === 400) {
-          alert("Preencha os campos corretamente.");
-          return;
-        }
-       else if (error.response.status === 409) {
-          alert("Não encontramos um registro de usuário para esse e-mail.");
-          return;
-        }
+       <ErrorSignIn error/> 
         });
+      }
     }
-  }
   return (
     <>
-      <StyledForm onSubmit={Login}>
+      <SignIn>
+        <h1>Já tem cadastro na loja?</h1>
+        <p>
+          Se você já tem seu cadastro na loja, informe nos campos
+          <br />
+          abaixo seu email e sua senha de acesso à loja.
+        </p>
+        <StyledForm onSubmit={Login}>
         <h2>E-mail:</h2>
         <Input
           type="email"
@@ -72,6 +68,7 @@ export default function FormSignIn() {
           Entrar
         </button>
       </StyledForm>
+      </SignIn>
     </>
   );
 }

@@ -1,8 +1,8 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import React, { useState} from "react";
 import HomePage from "./home/HomePage";
-import SignInPage from "./login/SignInPage";
-import SignUpPage from "./login/SignUpPage";
+import SignInPage from "./login/signIn/SignInPage";
+import SignUpPage from "./login/signUp/SignUpPage";
 import UserContext from "../contexts/UserContext";
 
 import '../styles/reset.css';

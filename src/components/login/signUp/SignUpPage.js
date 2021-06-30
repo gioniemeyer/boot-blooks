@@ -1,7 +1,7 @@
-import SignInPage from "./SignInPage";
-import HomePage from "../home/HomePage";
-import FormSignUp from "./forms/FormSignUp";
-import { Container, SignUp, Division } from "./styledComponents/StyledSignUpPage.js";
+import SignInPage from "../signIn/SignInPage";
+import HomePage from "../../home/HomePage";
+import FormSignUp from "./FormSignUp";
+import { Container, SignUp, Division } from "../styledComponents/StyledSignUpPage";
 
 export default function SignUpPage() {
   return (

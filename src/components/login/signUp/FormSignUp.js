@@ -2,26 +2,29 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Input from "../Input";
-import { StyledForm } from "../styledComponents/StyledForm.js";
-import ErrorSignUp from "../errorAlerts/ErrorSignUp";
+import { StyledForm } from "../styledComponents/StyledForm";
 
 export default function Form() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [gender, setGender] =useState("");
   const [isDisabled, setIsDisabled] = useState(false);
   let history = useHistory();
-  const equalPassword = password === confirmPassword ? true : false;
+  const equalPassword = (password === confirmPassword ? true : false);
   function SaveRegister(event) {
     event.preventDefault();
     if (!equalPassword) {
       alert("Senhas não conferem. Preencha corretamente.");
       return;
-    } else if (name && email) {
+    } else if (!name || !email || !gender) {
+      alert("Preencha todos os campos.");
+      return;
+    } else 
       setIsDisabled(true);
       const body = {
-        name: name,
+        name,
         email,
         password,
       };
@@ -33,8 +36,7 @@ export default function Form() {
       });
       request.catch((error) => {
         setIsDisabled(false);
-        console.log("aqui");
-        if (error.response.status === 409) {
+        if(error.response.status === 409) {
           alert(
             "Esse e-mail nao está disponível. Outro usuário já é cadastrado com o respectivo endereço."
           );
@@ -43,9 +45,9 @@ export default function Form() {
         else if (error.response.status === 400) {
           alert("Preencha os campos corretamente.");
           return;
-        }      });
-    }
-  }
+        }
+      });
+}
   return (
     <>
       <StyledForm onSubmit={SaveRegister}>
@@ -83,6 +85,7 @@ export default function Form() {
             type="radio"
             radioName="gender"
             value="feminino"
+            onChange={(e) => setGender(e.target.value)}
             isDisabled={isDisabled}
           />
           <label htmlFor="feminino">Feminino</label>
@@ -90,6 +93,7 @@ export default function Form() {
             type="radio"
             radioName="gender"
             value="masculino"
+            onChange={(e) => setGender(e.target.value)}
             isDisabled={isDisabled}
           />
           <label htmlFor="masculino">Masculino</label>

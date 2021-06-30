@@ -10,7 +10,7 @@ export default function Input({type, onChange, value, isDisabled, radioName}) {
               value={value}
               name = {radioName? radioName : ""}
               disabled={isDisabled}
-              required ={true}
+              required
             ></StyledInput>
     </>
   );}
