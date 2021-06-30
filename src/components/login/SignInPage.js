@@ -1,12 +1,13 @@
-import { SignIn} from "../styledComponents/StyledSignInPage"; 
-import React, { useState, useContext } from "react";
+import { SignIn } from "./styledComponents/StyledSignInPage";
+import React from "react";
+import { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import ErrorSignIn from "./ErrorSignIn.js";
-import UserContext from "../../../contexts/UserContext.js";
-import Input from "../Input";
-import { StyledForm } from "../styledComponents/StyledForm";
-
+import UserContext from "../../contexts/UserContext.js";
+import Input from "../globalComponents/Input";
+import { StyledForm } from "./styledComponents/StyledForm";
+import FormSignIn from "./forms/FormSignIn";
 
 export default function SignInPage() {
   const [email, setEmail] = useState("");
@@ -14,7 +15,7 @@ export default function SignInPage() {
   const [isDisabled, setIsDisabled] = useState(false);
   const { setUser } = useContext(UserContext);
   let history = useHistory();
-  
+
   function Login(event) {
     event.preventDefault();
     if (email && password) {
@@ -34,10 +35,10 @@ export default function SignInPage() {
       request.catch((error) => {
         setIsDisabled(false);
         alert("Não foi possível realizar o login.");
-       <ErrorSignIn error/> 
-        });
-      }
+        <ErrorSignIn error />;
+      });
     }
+  }
   return (
     <>
       <SignIn>
@@ -47,27 +48,28 @@ export default function SignInPage() {
           <br />
           abaixo seu email e sua senha de acesso à loja.
         </p>
-        <StyledForm onSubmit={Login}>
-        <h2>E-mail:</h2>
-        <Input
-          type="email"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-          disabled={isDisabled}
-          isDisabled={isDisabled}
-        />
-        <h2>Sua Senha:</h2>
-        <Input
-          type="password"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-          disabled={isDisabled}
-          isDisabled={isDisabled}
-        />
-        <button type="submit" onClick={Login}>
-          Entrar
-        </button>
-      </StyledForm>
+
+        <FormSignIn onSubmit={Login}>
+          <h2>E-mail:</h2>
+          <Input
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            disabled={isDisabled}
+            isDisabled={isDisabled}
+          />
+          <h2>Sua Senha:</h2>
+          <Input
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            disabled={isDisabled}
+            isDisabled={isDisabled}
+          />
+          <button type="submit" onClick={Login}>
+            Entrar
+          </button>
+        </FormSignIn>
       </SignIn>
     </>
   );
