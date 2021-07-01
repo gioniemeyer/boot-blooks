@@ -8,22 +8,23 @@ import UserContext from "../../contexts/UserContext";
 export default function BookContainer({book}) {
     let history = useHistory();
     const { user } = useContext(UserContext);
-
+    const localToken = localStorage.getItem("token");
+       
     const {id, image, title, sinopse, price} = book;
     const currency = (price / 100).toFixed(2).replace('.',',');
-
-    console.log(user)
 
     function buy(e) {
         e.preventDefault();
 
-        if(!user) {
+        if(!user && !localToken) {
             alert("Favor, logar para prosseguir com a compra");
             return history.push("/sign-in");
         }
 
+        const token = user?.token || localToken;
+
         const body = {
-            token: user.token,
+            token: token,
             bookId: id, 
             quantity: 1
         }
@@ -34,10 +35,13 @@ export default function BookContainer({book}) {
 
         req.catch(err => {
             const statusCode = err.response.status;
-            alert(statusCode);
+            if(statusCode === 403) {
+                alert("A quantidade requerida é maior que a disponível em estoque, sinto muito... :/");
+            } else if (statusCode === 500) {
+                alert("Há algo estranho no nosso servidor, favor tente mais tarde.")
+            }
         })
     }
-
 
     return(
         <Container>
