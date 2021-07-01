@@ -11,33 +11,30 @@ export default function CartPage() {
     let history = useHistory();
     const {user} = useContext(UserContext);
     const [products, setProducts] = useState([]);
-    console.log(user)
 
     useEffect(() => {
 
         if(!user) {
             alert("Favor, logar para prosseguir com a compra");
-            return history.push("/");
+            return history.push("/sign-in");
         }
 
         const config = {
-            headers: {
-                Authorization: `Bearer ${user.token}`
-            }
-        }
+            headers: { Authorization: `Bearer ${user.token}`}
+          };
 
-        const req = axios.get(`${process.env.REACT_APP_API_BASE_URL}/cart`);
-        req.then(() => {
+        const req = axios.get(`${process.env.REACT_APP_API_BASE_URL}/cart`, config);
+        req.then(res => console.log(res.data))
+    }, [products])
 
-        })
-    }, [])
+    console.log(products)
     return(
         <Container>
             <Slogan />
 
             <Categories />
 
-            <Cart />
+            <Cart products={products} />
             
         </Container>
     )

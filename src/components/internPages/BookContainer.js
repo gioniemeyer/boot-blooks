@@ -17,13 +17,18 @@ export default function BookContainer({book}) {
     function buy(e) {
         e.preventDefault();
 
+        if(!user) {
+            alert("Favor, logar para prosseguir com a compra");
+            return history.push("/sign-in");
+        }
+
         const body = {
-            // userId: userId,
+            token: user.token,
             bookId: id, 
             quantity: 1
         }
 
-        const req = axios.post(`${process.env.REACT_APP_API_BASE_URL}/add-product`, body);
+        const req = axios.post(`${process.env.REACT_APP_API_BASE_URL}/cart`, body);
 
         req.then(() => history.push("/shopping-cart"));
 
