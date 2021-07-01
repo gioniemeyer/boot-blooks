@@ -1,4 +1,3 @@
-
 export default function ErrorSignIn({error}) {
      if (error.response.status === 401) {
         alert("Senha incorreta! Tente novamente.");

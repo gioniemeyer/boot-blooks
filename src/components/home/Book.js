@@ -8,7 +8,7 @@ export default function Book({book}) {
     const currency = `R$ ${(price / 100).toFixed(2).replace('.',',')}` 
 
     function openBook() {
-        history.push(`/book/${id}`)
+        history.push(`/books/${id}`)
     }
     return(
         <Container onClick={openBook}>

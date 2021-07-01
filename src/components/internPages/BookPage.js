@@ -4,8 +4,8 @@ import axios from "axios";
 import styled from "styled-components";
 
 import Categories from '../globalComponents/Categories';
-import BookContainer from "./BookContainer";
 import Slogan from "../globalComponents/Slogan";
+import BookContainer from "./BookContainer";
 
 export default function BookPage() {
     let history = useHistory();
@@ -15,7 +15,7 @@ export default function BookPage() {
     useEffect(() => {
         id = parseInt(id);
 
-        const req = axios.get("https://boot-blooks-back.herokuapp.com/books/" + id);
+        const req = axios.get(`${process.env.REACT_APP_API_BASE_URL}/books/${id}`);
 
         req.then(res => setBook(res.data))
 
