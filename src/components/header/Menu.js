@@ -9,26 +9,32 @@ import { AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
 export default function Menu() {
   let history = useHistory();
   const { name, token } = localStorage;
-
+  console.log(localStorage);
   function signOut() {
     const config = {
-      headers : { Authorization : `Bearer ${token}`}
+      headers: { Authorization: `Bearer ${token}` },
     };
-    const request = axios.post(`${process.env.REACT_APP_API_BASE_URL}/sign-out`, 
-    {}, config);
-    request.then(()=> {
+    const request = axios.post(
+      `${process.env.REACT_APP_API_BASE_URL}/sign-out`,
+      {},
+      config
+    );
+    request.then(() => {
       localStorage.clear();
       console.log(localStorage);
-    } );
+    });
   }
-
-
   return (
     <StyledMenuBox>
       <InputSearch />
       <Options>
         <p>Olá, {name === undefined ? name : "visitante"} </p>
-        <button width="80" onClick={() => signOut}>
+        <button
+          width="80"
+          onClick={
+            name === undefined ? () => signOut : () => history.push("/sign-up")
+          }
+        >
           {name === undefined ? "Sair" : "Entrar"}
         </button>
         <button onClick={() => history.push("/sign-up")}>
