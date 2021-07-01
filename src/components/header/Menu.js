@@ -18,8 +18,9 @@ export default function Menu() {
           <InputSearch />
       <Options>
        <p>Olá, {name === undefined ? name : "visitante"} </p>
-      <button onClick={()=> signOut}> {name === undefined ? "Sair": "Entrar"} </button>
+      <button width= "80" onClick={()=> signOut}> {name === undefined ? "Sair": "Entrar"} </button>
       <button  onClick={()=> history.push("/sign-up")}><UserIcon />Minha conta</button >
+      {name === undefined ? <button  onClick={()=> history.push("/sign-up")}><UserIcon />Meus pedidos</button > : ""}
       <button  onClick={()=> history.push("/")}><MarketIcon />Meu carrinho</button >
       </Options>
       
@@ -28,10 +29,9 @@ export default function Menu() {
   );
 }
 const StyledMenuBox = styled.form`
-background-color: pink;
 width: 100%;
 height: 40px;
-margin-bottom: 10px;
+margin-bottom: 30px;
 display: flex;
 justify-content: space-between;
 align-items: center;
@@ -44,14 +44,15 @@ display: flex;
 text-align: center;
 align-items: center;
 justify-content: space-between;
+
 button{
-background-color: pink;
 display: flex;
 cursor: pointer;
 display: flex;
 text-align: center;
 align-items: center;
 border:none;
+background-color: #fff;
 }
 
 `;

@@ -5,16 +5,15 @@ import styled from 'styled-components';
 import Slogan from "../globalComponents/Slogan";
 import Menu from "../header/Menu";
 
-
 export default function HomePage() {
+    console.log(localStorage)
     return(
-        <Container>
+         <Container>
             <Menu />
             <Slogan />
             <Categories />
             <BooksContainer />
-        </Container>
-    )
+        </Container>)
 }
 
 const Container = styled.div`
