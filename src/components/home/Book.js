@@ -6,7 +6,6 @@ export default function Book({book}) {
     let history = useHistory();
     const {id, title, image, price} = book;
     const currency = `R$ ${(price / 100).toFixed(2).replace('.',',')}` 
-
     function openBook() {
         history.push(`/book/${id}`)
     }

@@ -3,7 +3,7 @@ import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import ErrorSignIn from "./ErrorSignIn.js";
-import UserContext from "../../contexts/UserContext.js";
+import UserContext from "../../contexts/UserContext";
 import Input from "../globalComponents/Input";
 import FormBox from "../globalComponents/FormBox";
 
@@ -32,8 +32,18 @@ export default function SignInPage() {
       });
       request.catch((error) => {
         setIsDisabled(false);
-        alert("Não foi possível realizar o login.");
-        <ErrorSignIn error />;
+        if (error.response.status === 401) {
+          alert("Senha incorreta! Tente novamente.");
+          return;
+        }
+       else  if (error.response.status === 400) {
+          alert("Preencha os campos corretamente.");
+          return;
+        }
+       else if (error.response.status === 409) {
+          alert("Não encontramos um registro de usuário para esse e-mail.");
+          return;
+        }
       });
     }
   }
