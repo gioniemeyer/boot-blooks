@@ -23,7 +23,7 @@ export default function BookContainer({book}) {
             quantity: 1
         }
 
-        const req = axios.post('http://localhost:4000/add-product', body);
+        const req = axios.post(`${process.env.REACT_APP_API_BASE_URL}/add-product`, body);
 
         req.then(() => history.push("/shopping-cart"));
 
