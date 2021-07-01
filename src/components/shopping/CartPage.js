@@ -1,9 +1,36 @@
+import { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Categories from '../globalComponents/Categories';
 import Slogan from "../globalComponents/Slogan";
 import Cart from "./Cart";
+import UserContext from '../../contexts/UserContext';
+import { useHistory } from 'react-router';
+import axios from 'axios';
 
 export default function CartPage() {
+    let history = useHistory();
+    const {user} = useContext(UserContext);
+    const [products, setProducts] = useState([]);
+    console.log(user)
+
+    useEffect(() => {
+
+        if(!user) {
+            alert("Favor, logar para prosseguir com a compra");
+            return history.push("/");
+        }
+
+        const config = {
+            headers: {
+                Authorization: `Bearer ${user.token}`
+            }
+        }
+
+        const req = axios.get(`${process.env.REACT_APP_API_BASE_URL}/cart`);
+        req.then(() => {
+
+        })
+    }, [])
     return(
         <Container>
             <Slogan />
