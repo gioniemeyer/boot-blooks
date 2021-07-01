@@ -19,9 +19,9 @@ export default function Item({product}) {
 
     function changeQuantity(value) {
 
-        const body = {quantity: value, bookId: id}
+        const body = {token, quantity: value, bookId: id}
             
-        const req = axios.post(`${process.env.REACT_APP_API_BASE_URL}/update-cart`, body, config)
+        const req = axios.post(`${process.env.REACT_APP_API_BASE_URL}/update-cart`, body)
         req.then(res => setProducts(res.data))
         req.catch(err => {
             const statusCode = err.response.status;
