@@ -22,7 +22,7 @@ export default function SignInPage() {
         email,
         password,
       };
-      const request = axios.post("http://localhost:4000/sign-in", body);
+      const request = axios.post(`${process.env.REACT_APP_API_BASE_URL}/sign-in`, body);
       request.then((response) => {
         setIsDisabled(false);
         setUser(response.data);
@@ -36,11 +36,11 @@ export default function SignInPage() {
           alert("Senha incorreta! Tente novamente.");
           return;
         }
-       else  if (error.response.status === 400) {
+        else  if (error.response.status === 400) {
           alert("Preencha os campos corretamente.");
           return;
         }
-       else if (error.response.status === 409) {
+        else if (error.response.status === 409) {
           alert("Não encontramos um registro de usuário para esse e-mail.");
           return;
         }
