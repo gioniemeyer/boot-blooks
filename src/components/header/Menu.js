@@ -9,7 +9,7 @@ import {AiOutlineShoppingCart,AiOutlineUser
 export default function Menu() {
   let history = useHistory();
   const { name } = localStorage;
-
+  
   function signOut(){
     return name
   }
