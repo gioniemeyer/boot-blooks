@@ -15,11 +15,12 @@ const Container = styled.div`
   }
 `;
 
+
 const Division = styled.div`
   width: 0.5px;
   height: 500px;
   background-color: gray;
-  @media (max-width: 780px) {
+  @media (max-width: 614px) {
     display: none;
   }
 `;
@@ -27,11 +28,12 @@ const Division = styled.div`
 const SignUp = styled.div`
   width: 40%;
   display: flex;
-  justify-content: center;
   flex-direction: column;
   color: black;
-  position: relative;
-
+  align-items: center;
+  
+  div{width:100%;
+  }
   h1 {
     font-size: 30px;
     margin-bottom: 20px;
@@ -42,7 +44,7 @@ const SignUp = styled.div`
     line-height: 18px;
     color: gray;
   }
-  @media (max-width: 780px) {
+  @media (max-width: 614px) {
     margin-top: 20px;
     width: 100%;
     height: 640px;

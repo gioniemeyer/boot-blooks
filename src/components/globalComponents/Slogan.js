@@ -32,6 +32,7 @@ const Container = styled.div`
     @media(max-width: 614px) {
          font-size: 40px;
          margin: 70px auto;
+         margin-top:20px;
      }
     } 
 `
