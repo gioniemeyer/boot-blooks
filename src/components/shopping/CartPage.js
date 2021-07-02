@@ -7,6 +7,7 @@ import UserContext from '../../contexts/UserContext';
 import { useHistory } from 'react-router';
 import axios from 'axios';
 import ProductsContext from '../../contexts/ProductsContext';
+import Menu from "../header/Menu";
 
 export default function CartPage() {
     let history = useHistory();
@@ -33,12 +34,10 @@ export default function CartPage() {
 
     return(
         <Container>
+            <Menu />
             <Slogan />
-
             <Categories />
-
             <Cart />
-            
         </Container>
     )
 }
@@ -46,14 +45,15 @@ export default function CartPage() {
 const Container = styled.div`
     height: 100%;
     width: 70vw;
-    margin: 100px auto;
+    margin: 100px auto 0 auto;
     display: flex;
     flex-direction:column;
     justify-content: flex-start;
     font-family: 'Roboto', sans-serif;
+    margin: 0 auto;
    
     @media(max-width: 614px) {
         width: 90%;
-        margin: 100px auto 20px auto;
+        margin: 50px auto 0px auto;
     }
 `
