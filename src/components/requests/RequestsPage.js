@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import Slogan from "../globalComponents/Slogan";
-import Categories from "../globalComponents/Categories";
 import MyRequests from "./MyRequests";
 import Menu from "../header/Menu";
 
@@ -9,7 +8,6 @@ export default function RequestsPage() {
         <Container>
             <Menu />
             <Slogan />
-            <Categories />
             <Title>Seus pedidos</Title>
             <MyRequests />
         </Container>

@@ -7,6 +7,22 @@ const Container = styled.div`
   justify-content: space-between;
   font-family: "Roboto", sans-serif;
   margin: 0 auto;
+  flex-direction: column;
+  @media (max-width: 780px) {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+const ContainerLogin = styled.div`
+  padding: 100px 0px 100px 0px;
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Roboto", sans-serif;
+  margin: 0 auto;
   @media (max-width: 780px) {
     width: 90%;
     display: flex;
@@ -51,4 +67,4 @@ const SignUp = styled.div`
   }
 `;
 
-export { Container, Division, SignUp };
+export { Container, Division, SignUp, ContainerLogin };
