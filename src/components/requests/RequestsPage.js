@@ -1,13 +1,15 @@
 import styled from "styled-components";
 import Slogan from "../globalComponents/Slogan";
-import Categories from "../globalComponents/Categories";
+import MyRequests from "./MyRequests";
+import Menu from "../header/Menu";
 
 export default function RequestsPage() {
     return (
         <Container>
+            <Menu />
             <Slogan />
-            <Categories />
-            <Title>Pedido Concluído com sucesso!</Title>
+            <Title>Seus pedidos</Title>
+            <MyRequests />
         </Container>
     )
 }
@@ -20,10 +22,11 @@ const Container = styled.div`
     flex-direction:column;
     justify-content: flex-start;
     font-family: 'Roboto', sans-serif;
+    margin: 0 auto;
    
     @media(max-width: 614px) {
         width: 90%;
-        margin: 100px auto 20px auto;
+        margin: 50px auto 0px auto;
     }
 `
 

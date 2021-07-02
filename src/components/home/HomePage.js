@@ -1,6 +1,5 @@
 
 import BooksContainer from "./BooksContainer";
-import Categories from "../globalComponents/Categories";
 import styled from 'styled-components';
 import Slogan from "../globalComponents/Slogan";
 import Menu from "../header/Menu";
@@ -11,7 +10,6 @@ export default function HomePage() {
          <Container>
             <Menu />
             <Slogan />
-            <Categories />
             <BooksContainer />
         </Container>)
 }
