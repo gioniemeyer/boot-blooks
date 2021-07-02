@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 
-import Categories from '../globalComponents/Categories';
+import Categories from '../home/Categories';
 import Slogan from "../globalComponents/Slogan";
 import BookContainer from "./BookContainer";
 

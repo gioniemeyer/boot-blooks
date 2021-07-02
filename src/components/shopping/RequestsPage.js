@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Slogan from "../globalComponents/Slogan";
-import Categories from "../globalComponents/Categories";
+import Categories from "../home/Categories";
 
 export default function RequestsPage() {
     return (

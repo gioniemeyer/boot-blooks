@@ -1,11 +1,10 @@
-
 import BooksContainer from "./BooksContainer";
-import Categories from "./Categories";
+import Categories from "../home/Categories";
 import styled from 'styled-components';
 import Slogan from "../globalComponents/Slogan";
 import Menu from "../header/Menu";
 
-export default function HomePage() {
+export default function BooksCategories() {
     console.log(localStorage)
     return(
          <Container>

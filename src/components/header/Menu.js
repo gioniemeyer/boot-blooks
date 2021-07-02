@@ -99,6 +99,7 @@ const StyledMenuBox = styled.div`
   align-items: center;
   font-size: 13px;
   z-index: 99;
+  color:black;
   @media (max-width: 614px) {
     background-color: black;
     position: fixed;

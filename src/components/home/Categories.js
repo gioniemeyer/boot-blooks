@@ -4,17 +4,24 @@ import React, { useState, useEffect } from "react";
 
 export default function Categories() {
   const [categories, setCategories] = useState([]);
-
+  let categorie = "";
   useEffect(() => {
     const req = axios.get(`${process.env.REACT_APP_API_BASE_URL}/categories`);
     req.then((res) => {
       setCategories(res.data);
     });
   }, []);
+
+  function filterCategories() {
+    const req = axios.get(`${process.env.REACT_APP_API_BASE_URL}/filter-categories`);
+    req.then((res) => {
+      categorie = res.data;
+    });
+  }
   return (
     <Container> 
       {categories.map((e) => {
-        return (<p>{e.name}</p>);
+        return (<p onClick={filterCategories}>{e.name}</p>);
       })}
     </Container>
   );

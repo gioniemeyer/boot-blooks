@@ -12,6 +12,7 @@ import '../styles/reset.css';
 import BookPage from "./internPages/BookPage";
 import CartPage from "./shopping/CartPage";
 import RequestsPage from "./shopping/RequestsPage";
+import BooksCategories from "./internPages/BooksCategories";
 
 export default function App() {
     const [user, setUser] = useState(undefined);
@@ -34,6 +35,7 @@ export default function App() {
                         <Route path='/shopping-cart' exact component={CartPage}/>
 
                         <Route path='/conclusion' exact component={RequestsPage}/>
+                        <Route path='/books-categories' exact component={BooksCategories}/>
 
                     </ProductsContext.Provider>
                 </Switch>
