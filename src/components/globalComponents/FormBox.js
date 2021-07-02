@@ -60,6 +60,6 @@ const StyledForm = styled.form`
     }
   }
   @media (max-width: 614px) {
-    //width: 100%;
+     width: 100%;
   }
 `;
