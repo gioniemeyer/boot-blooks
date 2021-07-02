@@ -25,7 +25,7 @@ export default function App() {
                 <Switch>
                     <Route path='/sign-up' exact component={SignUpPage}/>
 
-                    <Route path='/sign-in' exact component={SignInPage}/>
+                    <Route path='/sign-in' exact component={SignUpPage}/>
                     <ProductsContext.Provider value={{products, setProducts}}>
                         <Route path='/' exact component={HomePage}/>
                         
