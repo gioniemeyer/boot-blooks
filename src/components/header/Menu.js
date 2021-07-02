@@ -100,7 +100,7 @@ const StyledMenuBox = styled.div`
   font-size: 13px;
   z-index: 99;
   @media (max-width: 614px) {
-    background-color: #8e1a0a;
+    background-color: black;
     position: fixed;
     top: 0;
     left: 0;
@@ -110,7 +110,7 @@ const StyledMenuBox = styled.div`
 const NavMobile = styled.div`
   display: none;
   @media (max-width: 614px) {
-    background-color: #8e1a0a;
+    background-color: black;
     width: 34%;
     height: 90px;
     position: fixed;
@@ -129,7 +129,7 @@ const NavMobile = styled.div`
       cursor: pointer;
       border: none;
       outline: transparent;
-      background-color: #8e1a0a;
+      background-color: black;
       color: white;
     }
   }

@@ -12,10 +12,9 @@ export default function Categories() {
     });
   }, []);
   return (
-    <Container>
-      {categories.forEach((e) => {
-        const categoryName = e.name;
-        return (<p>{categoryName}</p>);
+    <Container> 
+      {categories.map((e) => {
+        return (<p>{e.name}</p>);
       })}
     </Container>
   );
@@ -28,6 +27,7 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   font-size: 14px;
+  color:black;
 
   p {
     font-weight: bold;
