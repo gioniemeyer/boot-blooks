@@ -1,4 +1,4 @@
-import React,  { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import InputSearch from "./InputSearch";
 import axios from "axios";
@@ -76,8 +76,7 @@ export default function Menu() {
           </Link>
           {name ? (
             <Link to="/sign-up">
-             
-             <BuyIcon />
+              <BuyIcon />
               Meus pedidos
             </Link>
           ) : (
@@ -106,7 +105,7 @@ const StyledMenuBox = styled.div`
     position: fixed;
     top: 0;
     left: 0;
-    color:#fff;
+    color: #fff;
   }
 `;
 const NavMobile = styled.div`
@@ -127,13 +126,13 @@ const NavMobile = styled.div`
     padding: 10px;
     text-align: right;
     z-index: 3 !important;
-    button{
-    cursor: pointer;
-  border: none;
-  outline: transparent;
-  background-color: #8e1a0a;
-  color:white;
-  }
+    button {
+      cursor: pointer;
+      border: none;
+      outline: transparent;
+      background-color: #8e1a0a;
+      color: white;
+    }
   }
 `;
 
@@ -145,11 +144,11 @@ const Options = styled.div`
   justify-content: space-between;
   line-height: 20px;
 
-  button{
+  button {
     cursor: pointer;
-  border: none;
-  outline: transparent;
-  background-color: #fff;
+    border: none;
+    outline: transparent;
+    background-color: #fff;
   }
 
   @media (max-width: 614px) {
@@ -173,13 +172,11 @@ const BuyIcon = styled(AiTwotoneShopping)`
 `;
 
 const BarIcon = styled(FaBars)`
-display: none; 
-@media (max-width: 614px) {
-  display:block; 
-  color:white;
-   font-size: 17px;
-   margin-right: 10px;
+  display: none;
+  @media (max-width: 614px) {
+    display: block;
+    color: white;
+    font-size: 17px;
+    margin-right: 10px;
   }
-   
-  
 `;

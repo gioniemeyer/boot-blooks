@@ -32,8 +32,7 @@ const StyledForm = styled.form`
     font-size: 20px;
     line-height: 23px;
     cursor: pointer;
-    margin-top:20px;
-    
+    margin-top: 20px;
   }
 
   input {
