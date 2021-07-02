@@ -14,8 +14,7 @@ const StyledForm = styled.form`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-top: 20px;
-  z-index: 0;
+  margin: 20px;
 
   h2 {
     margin: 15px 0px 10px 0px;
@@ -61,6 +60,6 @@ const StyledForm = styled.form`
     }
   }
   @media (max-width: 614px) {
-    width: 100%;
+    //width: 100%;
   }
 `;

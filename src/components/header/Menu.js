@@ -4,9 +4,8 @@ import InputSearch from "./InputSearch";
 import axios from "axios";
 import { useHistory } from "react-router";
 import UserContext from "../../contexts/UserContext";
-import { AiTwotoneShopping } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { FaBars, FaUserAlt, FaShoppingCart } from "react-icons/fa";
+import { FaBars, FaUserAlt, FaShoppingBag, FaShoppingCart } from "react-icons/fa";
 
 export default function Menu() {
   let history = useHistory();
@@ -49,7 +48,7 @@ export default function Menu() {
         </Link>
         {name ? (
           <Link to="/sign-up">
-            <UserIcon />
+            <BuyIcon />
             Meus pedidos
           </Link>
         ) : (
@@ -139,10 +138,10 @@ const NavMobile = styled.div`
 const Options = styled.div`
   width: 70%;
   display: flex;
-  text-align: center;
+  text-align: bottom;
   align-items: center;
   justify-content: space-between;
-  line-height: 20px;
+  line-height: 25px;
 
   button {
     cursor: pointer;
@@ -156,7 +155,7 @@ const Options = styled.div`
   }
 `;
 const MarketIcon = styled(FaShoppingCart)`
-  font-size: 14px;
+  font-size: 13px;
   cursor: pointer;
   margin-right: 5px;
 `;
@@ -165,8 +164,8 @@ const UserIcon = styled(FaUserAlt)`
   cursor: pointer;
   margin-right: 5px;
 `;
-const BuyIcon = styled(AiTwotoneShopping)`
-  font-size: 17px;
+const BuyIcon = styled(FaShoppingBag)`
+  font-size: 13px;
   cursor: pointer;
   margin-right: 5px;
 `;

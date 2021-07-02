@@ -51,12 +51,12 @@ export default function SignInPage() {
   return (
     <>
       <SignIn>
-        <h1>Já tem cadastro na loja?</h1>
+        <div><h1>Já tem cadastro na loja?</h1>
         <p>
           Se você já tem seu cadastro na loja, informe nos campos
           <br />
           abaixo seu email e sua senha de acesso à loja.
-        </p>
+        </p></div>
 
         <FormBox onSubmit={Login}>
           <h2>E-mail:</h2>

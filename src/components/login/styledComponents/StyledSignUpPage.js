@@ -7,13 +7,14 @@ const Container = styled.div`
   justify-content: space-between;
   font-family: "Roboto", sans-serif;
   margin: 0 auto;
-  @media (max-width: 614px) {
+  @media (max-width: 780px) {
     width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 `;
+
 
 const Division = styled.div`
   width: 0.5px;
@@ -27,11 +28,12 @@ const Division = styled.div`
 const SignUp = styled.div`
   width: 40%;
   display: flex;
-  justify-content: center;
   flex-direction: column;
   color: black;
-  position: relative;
-
+  align-items: center;
+  
+  div{width:100%;
+  }
   h1 {
     font-size: 30px;
     margin-bottom: 20px;

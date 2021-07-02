@@ -6,6 +6,9 @@ const SignIn = styled.div`
   flex-direction: column;
   color: black;
   position: relative;
+  align-items: center;
+  div{width:100%;
+  }
 
   h1 {
     font-size: 30px;

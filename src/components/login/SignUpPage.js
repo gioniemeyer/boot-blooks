@@ -65,11 +65,11 @@ export default function SignUpPage() {
         <SignInPage />
         <Division></Division>
         <SignUp>
-          <h1>Criar novo cadastro</h1>
+          <div><h1>Criar novo cadastro</h1>
           <p>
             Use o formulário abaixo para cadastrar-se na loja.
             <br /> É rápido e fácil.
-          </p>
+          </p></div>
           <FormBox onSubmit={SaveRegister}>
             <h2>Nome completo:</h2>
             <Input
