@@ -17,7 +17,6 @@ export default function SignUpPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [gender, setGender] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
   const { setUser } = useContext(UserContext);
   let history = useHistory();
@@ -29,7 +28,7 @@ export default function SignUpPage() {
     if (!equalPassword) {
       alert("Senhas não conferem. Preencha corretamente.");
       return;
-    } else if (!name || !email || !gender) {
+    } else if (!name || !email) {
       alert("Preencha todos os campos.");
       return;
     } else setIsDisabled(true);
