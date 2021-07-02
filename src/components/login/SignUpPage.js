@@ -1,10 +1,11 @@
 import SignInPage from "./SignInPage";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Input from "../globalComponents/Input";
 import HomePage from "../home/HomePage";
 import FormBox from "../globalComponents/FormBox";
+import UserContext from "../../contexts/UserContext";
 import {
   Container,
   SignUp,
@@ -18,10 +19,11 @@ export default function SignUpPage() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [gender, setGender] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
+  const { setUser } = useContext(UserContext);
   let history = useHistory();
 
   const equalPassword = (password === confirmPassword ? true : false);
-
+  
   function SaveRegister(event) {
     event.preventDefault();
     if (!equalPassword) {
@@ -39,6 +41,7 @@ export default function SignUpPage() {
     const request = axios.post(`${process.env.REACT_APP_API_BASE_URL}/sign-up`, body);
     request.then(() => {
       setIsDisabled(false);
+      setUser(name);
       alert("sucesso no cadastro!");
       history.push("/");
     });

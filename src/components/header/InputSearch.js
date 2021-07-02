@@ -1,14 +1,15 @@
-import React from "react";
+import React,{useState} from "react";
 import styled from "styled-components";
 import {AiOutlineSearch
 } from "react-icons/ai";
 
 export default function InputSearch() {
+  const[search, setSearch] = useState("");
   return (
      <InputContainer>
       <SearchInput
       type="text" name="booksTitle" placeholder="Pesquisar" 
-      className="search-box" value="" onChange=""
+      className="search-box" value={search} onChange={(e) => setSearch(e.target.value)}
       debounceTimeout={300}
       ></SearchInput>
       <SearchIcon />
@@ -27,9 +28,16 @@ padding-left: 10px;
       color: #000000;
       font-size: 13px;
     }
+    @media (max-width: 614px) {
+    width: 100%;
+    border: 1px solid white;
+    
+  }
 `;
 const InputContainer = styled.div`
 position: relative;
+width: 82%;
+padding-left: 10px;
 `;
 
 const SearchIcon = styled(AiOutlineSearch)`

@@ -17,7 +17,7 @@ const SignIn = styled.div`
     line-height: 18px;
     color: gray;
   }
-  @media (max-width: 780px) {
+  @media (max-width: 614px) {
     width: 100%;
     height: 340px;
   }
