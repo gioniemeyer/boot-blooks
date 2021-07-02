@@ -40,7 +40,10 @@ export default function({...props}) {
         console.log(body);
         const req = axios.post(`${process.env.REACT_APP_API_BASE_URL}/conclusion`, body, config)
         
-        req.then(() => history.push('/conclusion'))
+        req.then(() => {
+            alert("Pedido Concluído com sucesso!")
+            history.push('/conclusion')
+        })
     }
 
     return(

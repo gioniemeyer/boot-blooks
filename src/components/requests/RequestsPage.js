@@ -8,7 +8,7 @@ export default function RequestsPage() {
         <Container>
             <Slogan />
             <Categories />
-            <Title>Pedido Concluído com sucesso!</Title>
+            <Title>Seus pedidos</Title>
             <MyRequests />
         </Container>
     )
