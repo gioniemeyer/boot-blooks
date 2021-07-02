@@ -8,17 +8,12 @@ export default function Item({product}) {
     const {user} = useContext(UserContext);
     const localToken = localStorage.getItem("token");
     const {image, title, price, quantity, id} = product;
-    console.log(product);
     const value = (price / 100).toFixed(2).replace('.',',');
     const total = ((price * quantity) / 100).toFixed(2).replace('.',',');
     const {setProducts} = useContext(ProductsContext);
     const token = user?.token || localToken;
-    const config = {
-        headers: { Authorization: `Bearer ${token}`}
-        };
 
     function changeQuantity(value) {
-
         const body = {token, quantity: value, bookId: id}
             
         const req = axios.post(`${process.env.REACT_APP_API_BASE_URL}/update-cart`, body)
@@ -34,6 +29,10 @@ export default function Item({product}) {
     }
 
     function removeItem() {
+        const config = {
+            headers: { Authorization: `Bearer ${token}`}
+            };
+    
         const body = {bookId: id}
 
         const req = axios.post(`${process.env.REACT_APP_API_BASE_URL}/delete-book`, body, config)
@@ -72,7 +71,6 @@ const Product = styled.div`
     margin: 0 8px 1px 8px;
     border: dashed 0.5px #ececec;
     background-color: #fff;
-    display: flex;
     justify-content: space-between;
     color: #3a422a;
 
@@ -101,6 +99,10 @@ const General = styled.div`
 
     @media(max-width: 614px) {
         width: 20%;
+        img{
+            margin: 0 0;
+        }
+
         p {
             display: none;
         }

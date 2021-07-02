@@ -29,7 +29,7 @@ export default function CartPage() {
 
         const req = axios.get(`${process.env.REACT_APP_API_BASE_URL}/cart`, config);
         req.then(res => setProducts(res.data))
-    }, [])
+    }, [user, localToken])
 
     return(
         <Container>
