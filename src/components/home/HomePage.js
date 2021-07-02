@@ -3,16 +3,17 @@ import BooksContainer from "./BooksContainer";
 import Categories from "../globalComponents/Categories";
 import styled from 'styled-components';
 import Slogan from "../globalComponents/Slogan";
-
+import Menu from "../header/Menu";
 
 export default function HomePage() {
+    console.log(localStorage)
     return(
-        <Container>
+         <Container>
+            <Menu />
             <Slogan />
             <Categories />
             <BooksContainer />
-        </Container>
-    )
+        </Container>)
 }
 
 const Container = styled.div`
@@ -23,9 +24,10 @@ const Container = styled.div`
     flex-direction:column;
     justify-content: flex-start;
     font-family: 'Roboto', sans-serif;
+    margin: 0 auto;
    
     @media(max-width: 614px) {
         width: 90%;
-        margin: 100px auto 20px auto;
+        margin: 50px auto 0px auto;
     }
 `

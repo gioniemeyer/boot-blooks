@@ -14,7 +14,7 @@ const StyledForm = styled.form`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-top: 10px;
+  margin: 20px;
 
   h2 {
     margin: 15px 0px 10px 0px;
@@ -31,6 +31,7 @@ const StyledForm = styled.form`
     font-size: 20px;
     line-height: 23px;
     cursor: pointer;
+    margin-top: 20px;
   }
 
   input {
@@ -58,12 +59,7 @@ const StyledForm = styled.form`
       margin-top: 15px;
     }
   }
-  @media (max-width: 780px) {
-    width: 100%;
-    button {
-      position: absolute;
-      bottom: 0px;
-      left: 17.5%;
-    }
+  @media (max-width: 614px) {
+     width: 100%;
   }
 `;

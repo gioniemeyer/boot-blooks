@@ -2,8 +2,7 @@ import { SignIn } from "./styledComponents/StyledSignInPage";
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import ErrorSignIn from "./ErrorSignIn.js";
-import UserContext from "../../contexts/UserContext.js";
+import UserContext from "../../contexts/UserContext";
 import Input from "../globalComponents/Input";
 import FormBox from "../globalComponents/FormBox";
 
@@ -13,7 +12,7 @@ export default function SignInPage() {
   const [isDisabled, setIsDisabled] = useState(false);
   const { setUser } = useContext(UserContext);
   let history = useHistory();
-
+  console.log(localStorage)
   function Login(event) {
     event.preventDefault();
     if (email && password) {
@@ -40,9 +39,11 @@ export default function SignInPage() {
           alert("Preencha os campos corretamente.");
           return;
         }
-        else if (error.response.status === 409) {
+        else if (error.response.status === 404) {
           alert("Não encontramos um registro de usuário para esse e-mail.");
           return;
+        } else {
+          alert('Houve um erro desconhecido, tente novamente mais tarde');
         }
       });
     }
@@ -50,12 +51,12 @@ export default function SignInPage() {
   return (
     <>
       <SignIn>
-        <h1>Já tem cadastro na loja?</h1>
+        <div><h1>Já tem cadastro na loja?</h1>
         <p>
           Se você já tem seu cadastro na loja, informe nos campos
           <br />
           abaixo seu email e sua senha de acesso à loja.
-        </p>
+        </p></div>
 
         <FormBox onSubmit={Login}>
           <h2>E-mail:</h2>
