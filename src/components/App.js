@@ -11,7 +11,7 @@ import { grommet } from 'grommet/themes';
 import '../styles/reset.css';
 import BookPage from "./internPages/BookPage";
 import CartPage from "./shopping/CartPage";
-import RequestsPage from "./shopping/RequestsPage";
+import RequestsPage from "./requests/RequestsPage";
 
 export default function App() {
     const [user, setUser] = useState(undefined);

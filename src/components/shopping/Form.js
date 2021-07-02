@@ -88,6 +88,13 @@ export default function({...props}) {
 
 const ShoppingForm = styled(Form)`
     width: 40%;
+
+    @media (max-width: 780px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 const Label = styled.label`
