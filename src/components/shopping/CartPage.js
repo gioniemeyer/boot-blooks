@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Categories from '../home/Categories';
 import Slogan from "../globalComponents/Slogan";
 import Cart from "./Cart";
 import UserContext from '../../contexts/UserContext';
@@ -34,8 +33,6 @@ export default function CartPage() {
     return(
         <Container>
             <Slogan />
-
-            <Categories />
 
             <Cart />
             

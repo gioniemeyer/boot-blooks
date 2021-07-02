@@ -1,12 +1,10 @@
 import styled from "styled-components";
 import Slogan from "../globalComponents/Slogan";
-import Categories from "../home/Categories";
 
 export default function RequestsPage() {
     return (
         <Container>
             <Slogan />
-            <Categories />
             <Title>Pedido Concluído com sucesso!</Title>
         </Container>
     )
