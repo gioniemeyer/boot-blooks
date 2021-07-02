@@ -62,6 +62,7 @@ export default function BookContainer({book}) {
 }
 
 const Container = styled.div`
+    margin-top: 35px;
     display: flex;
     width: 100%;
     flex-wrap: wrap;

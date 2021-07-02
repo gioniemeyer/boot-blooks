@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 
-import Categories from '../globalComponents/Categories';
 import Slogan from "../globalComponents/Slogan";
 import BookContainer from "./BookContainer";
+import Menu from "../header/Menu";
 
 export default function BookPage() {
     let history = useHistory();
@@ -33,12 +33,9 @@ export default function BookPage() {
 
     return(
         <Container>
+            <Menu />
             <Slogan />
-
-            <Categories />
-                        
             <BookContainer book={book} />
-            
         </Container>
     )
 }
