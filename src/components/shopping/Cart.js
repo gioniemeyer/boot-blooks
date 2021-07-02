@@ -2,9 +2,15 @@ import styled from 'styled-components';
 import Item from './Item.js'
 import ProductsContext from '../../contexts/ProductsContext';
 import { useContext } from "react";
+import BuyInfos from './BuyInfos';
 
 export default function Cart() {
     const {products} = useContext(ProductsContext);
+    let finalPrice = 0;
+
+    for (let i = 0; i < products?.length; i++) {
+        finalPrice += products[i].price * products[i].quantity;
+    }
 
     return (
         <>
@@ -22,10 +28,13 @@ export default function Cart() {
                     <Product>
                         {products.map(p => <Item key={p.id} product={p} />)}
                     </Product>
+                    <TotalDiv>
+                        <p>Total:</p>
+                        <FinalPrice>{(finalPrice / 100).toFixed(2).replace('.',',')}</FinalPrice>
+                    </TotalDiv>
                 </Container>
-                <Button>
-                    Continuar comprando
-                </Button>
+                <BuyInfos />
+
                 </>
         }
         </>
@@ -40,7 +49,7 @@ const Container = styled.div`
     align-items: center;
     margin: auto auto;
     flex-direction: column;
-
+    position: relative;
 `
 
 const EmptyCart = styled.h1`
@@ -85,16 +94,22 @@ const Product = styled.div`
     width: 100%;
     margin: 0 3px 30px 3px; 
 `
-
-const Button = styled.button`
-    background-color: #8e2210;
-    width: 200px;
-    color: #fff;
-    border-radius: 3px;
-    height: 50px;
-    margin-top: 50px;
-    border:none;
+const TotalDiv = styled.div`
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 30px;
+    width: 100%;
+    padding-right: 5%;
+    bottom: 0;
+    right: 0;
+    box-sizing: border-box;
+    color: #b09d99;
     font-weight: bold;
-    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.2);
-    font-size: 15px;
+
+`
+const FinalPrice = styled.p`
+    padding-left: 13%;
+    color: #000;
 `
