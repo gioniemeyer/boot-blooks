@@ -20,7 +20,6 @@ export default function SignUpPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [gender, setGender] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
   const { setUser } = useContext(UserContext);
   let history = useHistory();
@@ -32,14 +31,14 @@ export default function SignUpPage() {
     if (!equalPassword) {
       alert("Senhas não conferem. Preencha corretamente.");
       return;
-    } else if (!name || !email || !gender) {
+    } else if (!name || !email) {
       alert("Preencha todos os campos.");
       return;
     } else setIsDisabled(true);
     const body = {
       name,
       email,
-      password,
+      password
     };
     const request = axios.post(`${process.env.REACT_APP_API_BASE_URL}/sign-up`, body);
     request.then(() => {
