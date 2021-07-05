@@ -2,8 +2,13 @@ import { useHistory, useParams } from "react-router";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 import Slogan from "../globalComponents/Slogan";
 import BookContainer from "./BookContainer";
+import Menu from "../header/Menu";
 
 export default function BookPage() {
     let history = useHistory();
@@ -31,11 +36,14 @@ export default function BookPage() {
 
     return(
         <Container>
+            <Menu />
             <Slogan />
+<<<<<<< HEAD
 
                         
+=======
+>>>>>>> main
             <BookContainer book={book} />
-            
         </Container>
     )
 }

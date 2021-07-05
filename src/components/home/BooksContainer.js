@@ -29,6 +29,7 @@ export default function BooksContainer() {
 }
 
 const Container = styled.div`
+    margin-top: 35px;
     display: flex;
     width: 100%;
     flex-wrap: wrap;
@@ -36,6 +37,7 @@ const Container = styled.div`
 `
 
 const Title = styled.h1`
+    margin-top: 35px;
     font-weight: bold;
     font-size: 25px;
     color: #000;

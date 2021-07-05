@@ -40,7 +40,10 @@ export default function({...props}) {
         console.log(body);
         const req = axios.post(`${process.env.REACT_APP_API_BASE_URL}/conclusion`, body, config)
         
-        req.then(() => history.push('/conclusion'))
+        req.then(() => {
+            alert("Pedido Concluído com sucesso!")
+            history.push('/conclusion')
+        })
     }
 
     return(
@@ -88,6 +91,13 @@ export default function({...props}) {
 
 const ShoppingForm = styled(Form)`
     width: 40%;
+
+    @media (max-width: 780px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 const Label = styled.label`

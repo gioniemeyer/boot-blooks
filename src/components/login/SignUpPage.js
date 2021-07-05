@@ -3,21 +3,23 @@ import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Input from "../globalComponents/Input";
-import HomePage from "../home/HomePage";
 import FormBox from "../globalComponents/FormBox";
 import UserContext from "../../contexts/UserContext";
 import {
   Container,
   SignUp,
   Division,
+  ContainerLogin
 } from "./styledComponents/StyledSignUpPage";
+import Menu from "../header/Menu";
+import Slogan from "../globalComponents/Slogan";
+import styled from "styled-components";
 
 export default function SignUpPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [gender, setGender] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
   const { setUser } = useContext(UserContext);
   let history = useHistory();
@@ -29,14 +31,14 @@ export default function SignUpPage() {
     if (!equalPassword) {
       alert("Senhas não conferem. Preencha corretamente.");
       return;
-    } else if (!name || !email || !gender) {
+    } else if (!name || !email) {
       alert("Preencha todos os campos.");
       return;
     } else setIsDisabled(true);
     const body = {
       name,
       email,
-      password,
+      password
     };
     const request = axios.post(`${process.env.REACT_APP_API_BASE_URL}/sign-up`, body);
     request.then(() => {
@@ -60,8 +62,12 @@ export default function SignUpPage() {
   }
   return (
     <>
-      <HomePage />
       <Container>
+        <Header>
+          <Menu />
+          <Slogan />
+        </Header>
+        <ContainerLogin>
         <SignInPage />
         <Division></Division>
         <SignUp>
@@ -99,31 +105,31 @@ export default function SignUpPage() {
               value={confirmPassword}
               isDisabled={isDisabled}
             />
-            <h2>Gênero:</h2>
-            <div>
-              <Input
-                type="radio"
-                radioName="gender"
-                value="feminino"
-                onChange={(e) => setGender(e.target.value)}
-                isDisabled={isDisabled}
-              />
-              <label htmlFor="feminino">Feminino</label>
-              <Input
-                type="radio"
-                radioName="gender"
-                value="masculino"
-                onChange={(e) => setGender(e.target.value)}
-                isDisabled={isDisabled}
-              />
-              <label htmlFor="masculino">Masculino</label>
-            </div>
+            
             <button type="submit" onClick={SaveRegister}>
               Cadastrar
             </button>
           </FormBox>
         </SignUp>
+
+        </ContainerLogin>
       </Container>
     </>
   );
 }
+
+const Header = styled.div`
+    height: 100%;
+    width: 70vw;
+    margin: 100px auto 0 auto;
+    display: flex;
+    flex-direction:column;
+    justify-content: flex-start;
+    font-family: 'Roboto', sans-serif;
+    margin: 0 auto;
+   
+    @media(max-width: 614px) {
+        width: 90%;
+        margin: 50px auto 0px auto;
+    }
+`

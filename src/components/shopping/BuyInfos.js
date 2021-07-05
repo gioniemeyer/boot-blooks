@@ -18,7 +18,12 @@ const Container = styled.div`
     display: flex;
     width: 100%;
     margin-top: 50px;
-    justify-content: space-between
+    justify-content: space-between;
+
+    @media (max-width: 780px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 const Button = styled.button`
@@ -31,4 +36,8 @@ const Button = styled.button`
     font-weight: bold;
     box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.2);
     font-size: 15px;
+
+    @media (max-width: 780px) {
+    margin-bottom: 20px;
+  }
 `
