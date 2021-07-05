@@ -2,7 +2,6 @@ import { useHistory, useParams } from "react-router";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
-
 import Slogan from "../globalComponents/Slogan";
 import BookContainer from "./BookContainer";
 import Menu from "../header/Menu";

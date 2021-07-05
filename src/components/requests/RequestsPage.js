@@ -17,11 +17,7 @@ export default function RequestsPage() {
 const Container = styled.div`
     height: 100%;
     width: 70vw;
-<<<<<<< HEAD
     margin: 0 auto;
-=======
-    margin: 100px auto 0 auto;
->>>>>>> main
     display: flex;
     flex-direction:column;
     justify-content: flex-start;

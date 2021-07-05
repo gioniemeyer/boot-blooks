@@ -41,7 +41,7 @@ const SearchInput = styled.input`
 const InputContainer = styled.div`
   width: 50%;
   @media (max-width: 614px) {
-    width: 84%;
+    width: 82%;
     padding-left: 15px;
   }
 `;
