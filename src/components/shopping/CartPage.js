@@ -35,10 +35,6 @@ export default function CartPage() {
         <Container>
             <Menu />
             <Slogan />
-<<<<<<< HEAD
-
-=======
->>>>>>> main
             <Cart />
         </Container>
     )
